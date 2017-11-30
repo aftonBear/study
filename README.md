@@ -1,21 +1,32 @@
 # study
 
-> A Vue.js project
+> 一些demo 轮子 实现
 
-## Build Setup
+## 项目下载
 
-``` bash
-# install dependencies
-npm install
+	git clone git@github.com:aftonBear/study.git
 
-# serve with hot reload at localhost:8080
-npm run dev
+## 项目运行
 
-# build for production with minification
-npm run build
+先在本地执行:
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+	npm install
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+如果执行会遇到麻烦，可以尝试：
+
+	sudo npm install
+
+或者
+
+	tnpm install
+
+安装完依赖环境之后，可以直接运行：
+
+	npm run dev
+
+运行之后，浏览器会直接开启:
+
+	http://localhost:8080/#/
+
+
+
