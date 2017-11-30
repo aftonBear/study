@@ -1,19 +1,30 @@
 # vue-calculator
 
-> Build a scientific calculator with vue.js
+> A Vue.js project study
 
-## Build Setup
 
-``` bash
-# install dependencies
-npm install
+## 项目下载
 
-# serve with hot reload at localhost:8080
-npm run dev
+	git clone git@github.com:aftonBear/vueStudy.git
 
-# build for production with minification
-npm run build
+## 项目运行
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+先在本地执行:
+
+	npm install
+
+如果执行会遇到麻烦，可以尝试：
+
+	sudo npm install
+
+或者
+
+	tnpm install
+
+安装完依赖环境之后，可以直接运行：
+
+	npm run dev
+
+运行之后，浏览器会直接开启:
+
+	http://localhost:8080/#/

@@ -5,6 +5,13 @@
 </template>
 
 <script>
+import Calculator from './components/calculator'
+export default {
+  name: 'app',
+  components: {
+    Calculator
+  }
+}
 </script>
 
 <style>
