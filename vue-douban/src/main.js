@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import {
   store
-} from "./store/index"
+} from "./store/store"
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
 import 'muse-ui/dist/theme-carbon.css'
@@ -15,6 +15,8 @@ Vue.config.productionTip = false
 
 Vue.filter('arr2string', value => value.join(' / '))
 Vue.filter('fixNum', num => (num ? (Number(num).toFixed(1)) : '暂无评分'))
+
+router.push('/test')
 
 /* eslint-disable no-new */
 new Vue({
