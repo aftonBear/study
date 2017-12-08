@@ -16,7 +16,7 @@ Vue.config.productionTip = false
 Vue.filter('arr2string', value => value.join(' / '))
 Vue.filter('fixNum', num => (num ? (Number(num).toFixed(1)) : '暂无评分'))
 
-router.push('/test')
+router.push('/movie/home')
 
 /* eslint-disable no-new */
 new Vue({
