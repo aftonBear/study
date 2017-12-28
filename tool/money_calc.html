@@ -8,8 +8,18 @@
     input {
       width: 60px;
     }
+
+    span {
+      -webkit-transition: color .25s linear;
+      -moz-transition: color .25s linear;
+      transition: color .25s linear;
+    }
   </style>
   <script src="https://cdn.bootcss.com/vue/2.5.9/vue.min.js"></script>
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
   <script type="text/javascript" src="http://cdn.webfont.youziku.com/wwwroot/js/wf/youziku.api.min.js"></script>
   <script type="text/javascript">
     $youziku.load("body", "fcf2439e1c3647699def63f8c84d1b44", "Source-Han-Light");
@@ -24,6 +34,7 @@
     <h2>money calc</h2>
     <h4>我情愿自己男盆友不是个暖男，也不想某天他突然和我说比起我更想照顾另外一个人，我会糟心死，然后情愿从没认识过。</h4>
     <hr> 12月：
+    <!-- <label for="a1">贷款</label> -->
     <label for="a1">贷款</label>
     <input type="text" id="a1" v-model.number="a1">
     <label for="a2">京东</label>
@@ -71,7 +82,7 @@
         b2: 275,
         b3: 5947.52,
         b4: 237,
-        b5: 812,
+        b5: 1812,
         c1: 0,
         c2: 748.95,
         c3: 0,
