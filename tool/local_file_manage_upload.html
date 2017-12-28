@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <form>
+        <input type="file" id="file-input" name="fileContent">
+    </form>
+    <script>
+        $("#file-input").on("change", function(){
+            // console.log(`file name is ${this.value}`);
+            // let formData = new FormData(this.form);
+            // formData.append("fileName", this.value);
+            // console.log(formData)
+            // 
+            let fileReader = new FileReader(),
+            fileType = this.files[0].type;
+            fileReader.onload = function(){
+                if(/^image\/[jpeg|png|gif]/.test(fileType)){
+                    console.log(`result=== ${this.result}`)
+                    $(`<img src="${this.result}">`).appendTo('body');
+                }
+            }
+            console.log(this.files[0])
+            fileReader.readAsDataURL(this.files[0])
+            console.log("%c this.files[0]", "color:lightgreen");
+        })
+    </script>
+</body>
+</html>
