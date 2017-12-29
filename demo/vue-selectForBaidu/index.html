@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../lib/css/bootstrap.min.css">
+    <script src="../lib/js/vue-1.0.21.js"></script>
+    <script src="../lib/js/vue-resource-0.7.0.js"></script>
+    <script>
+        window.onload = function () {
+          new Vue({
+            el: ".app",
+            data:{
+              fetchData:[],
+              wd:''
+            },
+            methods:{
+                search: function () {
+                   let url = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su";
+                   this.$http.jsonp(url,{wd:this.wd},{jsonp: 'cb'}).then(function (res) {
+                     this.fetchData = res.data.s;
+                   },function () {
+                     
+                   })
+
+                }
+            }
+          })
+        }
+    </script>
+</head>
+<body>
+    <div class="app">
+        <div class="">
+            <input type="text" v-model="wd" @change="search" class="col-md-3">
+            <div class="col-md-9"></div>
+        </div>
+        <ul>
+            <li v-for="item in fetchData">{{item}}</li>
+        </ul>
+    </div>
+</body>
+</html>
