@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			position: absolute;
+			top: 0;
+			left: 30%;
+			width: 100px;
+			height: 100px;
+			background-color: lightblue;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<script>
+		/**
+		 * created By Afton 2018年1月2日22:21:26
+		 */
+		window.onload = function () {
+			var tar = document.getElementById("box");
+			tar.onmousedown = function(e){
+				var disX = e.clientX - tar.offsetLeft;
+				var disY = e.clientY - tar.offsetTop;
+				document.onmousemove = function(e){
+					var l = e.clientX - disX;
+					var t = e.clientY - disY;
+					tar.style.left = l +"px";
+					tar.style.top = t + "px";
+					if(tar.offsetTop <= 0){
+						tar.style.top = 0 + "px";
+					}
+				}
+				document.onmouseup = function (e){
+					document.onmousemove = null;
+					document.onmouseup = null;
+				}
+			}
+		}
+	</script>
+</body>
+</html>
