@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../lib/css/bootstrap.min.css">
+    <style>
+        ul,li{
+            list-style: none;
+            margin:0;
+            padding: 0;
+        }
+        .curr{
+            background-color: #cccccc;
+        }
+        .f-clear{zoom:1}
+        .f-clear:after{content: "";display: block;overflow: hidden;clear: both;height: 0}
+    </style>
     <script src="../lib/js/vue-1.0.21.js"></script>
     <script src="../lib/js/vue-resource-0.7.0.js"></script>
     <script>
@@ -12,18 +24,38 @@
             el: ".app",
             data:{
               fetchData:[],
-              wd:''
+              wd:'',
+              currIndex: -1
             },
             methods:{
-                search: function () {
+                search: function (ev) {
+                  if(ev.keyCode==38 || ev.keyCode==40)return;
+                  if(ev.keyCode==13){
+                    window.open('https://www.baidu.com/s?wd='+this.wd);
+                    this.wd='';
+                  }
                    let url = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su";
                    this.$http.jsonp(url,{wd:this.wd},{jsonp: 'cb'}).then(function (res) {
                      this.fetchData = res.data.s;
                    },function () {
-                     
+
                    })
 
+                },
+              changeDown: function (){
+                this.currIndex ++;
+                if(this.currIndex == this.fetchData.length){
+                  this.currIndex = -1;
                 }
+                this.wd = this.fetchData[this.currIndex];
+              },
+              changeUp (){
+                this.currIndex --;
+                if(this.currIndex == -2){
+                  this.currIndex = this.fetchData.length - 1;
+                }
+                this.wd = this.fetchData[this.currIndex];
+              }
             }
           })
         }
@@ -31,13 +63,14 @@
 </head>
 <body>
     <div class="app">
-        <div class="">
-            <input type="text" v-model="wd" @change="search" class="col-md-3">
+        <div class="f-clear">
+            <input type="text" v-model="wd" @keyup="search($event)" class="col-md-3" @keydown.down="changeDown" @keydown.up.prevent="changeUp">
             <div class="col-md-9"></div>
         </div>
         <ul>
-            <li v-for="item in fetchData">{{item}}</li>
+            <li v-for="item in fetchData" :class="{curr: $index == currIndex}">{{item}}</li>
         </ul>
+        <p v-show="fetchData.length == 0">暂无数据..</p>
     </div>
 </body>
 </html>
