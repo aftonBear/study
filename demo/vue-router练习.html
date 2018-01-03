@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="./bower_components/vue/dist/vue.js"></script>
+	<script src="./bower_components/vue-router/dist/vue-router.js"></script>
+	<style>
+		.router-link-active{
+			color: lightblue;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<router-link to="/home">Home</router-link>
+		<router-link to="/news">News</router-link>
+		<router-view></router-view>
+	</div>
+	<template id="home">
+		<p>我是主页</p>
+		<div>
+			<router-link to="/home/login"></router-link>
+			<router-link to="/home/regis"></router-link>
+		</div>
+		<router-view></router-view>
+	</template>
+	<template id="news">
+		<p>我是新闻</p>
+	</template>
+	<script>
+		const routes = [
+			{ path: '/home', component: {
+				template: '#home'
+			}},
+			{ path: '/news', component: {
+				template: '#news'
+			}}
+		]
+		const router = new VueRouter({
+			routes
+		})
+		new Vue({
+			router
+		}).$mount('#app')
+		router.push('/home')
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/js/vue-1.0.21.js"></script>
+</head>
+<body>
+    <div id="box"><input type="text" @keydown.ctrl="down"></div>
+    <script>
+        window.onload = function(){
+            Vue.directive("on").keyCodes.ctrl = 17;
+            new Vue({
+                el: "#box",
+                methods: {
+                    down: function(){
+                        alert(1)
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+</html>
