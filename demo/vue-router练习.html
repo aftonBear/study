@@ -17,25 +17,93 @@
 		<router-link to="/news">News</router-link>
 		<router-view></router-view>
 	</div>
-	<template id="home">
-		<p>我是主页</p>
+	<!-- <template id="home">
 		<div>
-			<router-link to="/home/login"></router-link>
-			<router-link to="/home/regis"></router-link>
+			<p>我是主页</p>
+			<div>
+				<router-link to="/home/login">登录</router-link>
+				<router-link to="/home/regis">注册</router-link>
+			</div>
+			<div>
+				<router-view></router-view>
+			</div>
 		</div>
-		<router-view></router-view>
-	</template>
+	</template> -->
 	<template id="news">
-		<p>我是新闻</p>
+		<div>
+			<p>我是新闻</p>
+			<div>
+				<router-link to="/news/detail/01">新闻1</router-link>
+				<router-link to="/news/detail/02">新闻2</router-link>
+			</div>
+			<router-view></router-view>
+		</div>
+	</template>
+	<template id="newsDetail">
+		<div>
+			<p>params -> {{$route.params}}</p>
+			<br>
+			<p>path -> {{$route.path}}</p>
+			<br>
+			<p>query -> {{$route.query}}</p>
+			<br>
+			<p>hash -> {{$route.hash}}</p>
+			<br>
+			<p>fullPath -> {{$route.fullPath}}</p>
+			<br>
+			<!-- <p>matched -> {{$route.matched}}</p> -->
+			<br>
+			<p>name -> {{$route.name}}</p>
+		</div>
 	</template>
 	<script>
+		const home = {
+			template: `
+				<div>
+					<p>我是主页</p>
+					<div>
+						<router-link to="/home/login">登录</router-link>
+						<router-link to="/home/regis">注册</router-link>
+					</div>
+					<div>
+						<router-view></router-view>
+					</div>
+				</div>
+			`
+		}
 		const routes = [
-			{ path: '/home', component: {
-				template: '#home'
-			}},
-			{ path: '/news', component: {
-				template: '#news'
-			}}
+			{ 
+				path: '/home/', 
+			    component: home,
+				children: [
+					{
+						path: 'login',
+						component: {
+							template: '<p>我是登录信息</p>'
+						}
+					},
+					{
+						path: 'regis',
+						component: {
+							template: '<p>我是注册信息</p>'
+						}
+					}
+				]
+			},
+			{ 
+				path: '/news', 
+				component: {
+					template: '#news'
+				},
+				children: [
+					{
+						path: 'detail/:id',
+						component: {
+							template: '#newsDetail'
+						}
+					}
+				]
+			}
 		]
 		const router = new VueRouter({
 			routes
