@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <!-- css:list-style-type => disc 实心圆, circle 空点圆, square 黑方块 --> 
+    <li type="circle" v-for="(value,key,index) in b">{{index}} + {{key}} + {{value}}</li>
+  </ul>
+</div>
+
+  <script>
+  window.onload = function(){
+    // 测试array filter方法
+    const a = [
+      {
+        isLike: true,
+        num: 1,
+      },
+      {
+        isLike: true,
+        num: 2,
+      },
+      {
+        isLike: false,
+        num: 3,
+      },
+      {
+        isLike: true,
+        num: 4,
+      },
+      {
+        isLike: true,
+        num: 5,
+      }
+    ]
+    const a1 = a.filter(function(val){
+      return val.isLike;
+    })
+    console.trace(a1)
+
+
+    // 测试vue-for遍历对象
+    new Vue({
+      el: "#app",
+      data: {
+        b: {
+          name: "大佬",
+          age: 18,
+          sex: "woman"
+        }
+      }
+    })
+
+
+    // array 遍历 map方法
+    const c = ["小一","小二","小三","小四","小五"];
+    const c1 = [
+      {
+        name: "大佬",
+        age: 18,
+        sex: "woman"
+      },
+      {
+        name: "小弟",
+        age: 19,
+        sex: "man"
+      },
+      {
+        name: "厨子",
+        age: 20,
+        sex: "woman"
+      }
+    ]
+    c.map(function(val){
+      console.log(val)
+    })
+    // for(i in c1){
+    //   console.log(c1[i])
+    //   })
+    // }
+    let c2 = c1.filter(function(val){
+      return val.sex == "man"
+    })
+    console.log(c2)
+
+
+    // Object.assign 将所有可枚举属性的值从一个或多个源对象复制到目标对象并返回目标对象
+    const d = {
+      age: 27,
+      favoriteColor: 'Vue Green'
+    }
+    const d1 = {
+      name: "老王"
+    }
+    Object.assign(d,d1)
+    console.warn(d)
+    let d2 = Object.assign({},d,d1);
+    console.trace(d2)
+  }
+    
+
+    
+  </script>
+</body>
+</html>
