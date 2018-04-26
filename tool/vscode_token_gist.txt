@@ -1,5 +1,3 @@
-GitHub Token: ac9ce2222a8ad58de543cc0faec31597facd2220
-GitHub 
-Gist: f8db9a5ff630c6d29b0a8dcf2528aedc
-GitHub 
-Gist Type: Secret
+GitHub Token: 140e4c0720aa20005c5ae99a8f6fa14718035c89
+GitHub Gist: f8db9a5ff630c6d29b0a8dcf2528aedc
+GitHub Gist Type: Secret
