@@ -1,3 +1,76 @@
 GitHub Token: dab709b267a7459b08db8d69abacc3f4e97c8949
 GitHub Gist: cbcd096289c168752360e05e2da2fd57
 GitHub Gist Type: Secret
+
+{
+    "editor.tabSize": 2,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "top",
+    "files.associations": {
+        "*.vue": "vue"
+    },
+    "emmet.syntaxProfiles": {
+        "vue-html": "html",
+        "vue": "html"
+    },
+    "window.menuBarVisibility": "default",
+    "workbench.activityBar.visible": true,
+    "git.path": "D:/Software/Git/bin",
+    "gitlens.advanced.git": "D:/Software/Git/bin",
+    "window.zoomLevel": 0,
+    "files.autoSave": "off",
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "html",
+        {
+            "language": "vue",
+            "autoFix": true
+        }
+    ],
+    "eslint.options": {
+        // "configFile": "E:/vue-element-admin/.eslintrc.js",
+        "plugins": [
+            "html"
+        ]
+    },
+    "beautify.language": {
+        "html": [
+            "htm",
+            "html",
+            "vue"
+        ]
+    },
+    "emmet.triggerExpansionOnTab": true,
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true,
+        "suppressWelcomeNotice": true
+    },
+    "explorer.confirmDelete": false,
+    // 设置保存时自动格式化
+    "editor.formatOnSave": true,
+    // 配置是否从更新通道接收自动更新。更改后需要重启。
+    "update.channel": "none",
+    // vue文件的html格式化
+    "vetur.format.defaultFormatter.html": "js-beautify-html",
+    // 设置prettier代码风格保存为单引号
+    "prettier.singleQuote": true,
+    "prettier.semi": false,
+    "git.ignoreMissingGitWarning": true,
+    "gitlens.keymap": "alternate",
+    "px-to-rem.px-per-rem": 75,
+    "cssrem.rootFontSize": 75,
+    "sync.gist": "cbcd096289c168752360e05e2da2fd57",
+    "sync.lastUpload": "2018-04-26T07:19:04.931Z",
+    "sync.autoDownload": false,
+    "sync.autoUpload": false,
+    "sync.lastDownload": "",
+    "sync.forceDownload": false,
+    "sync.host": "",
+    "sync.pathPrefix": "",
+    "sync.quietSync": false,
+    "sync.askGistName": false,
+    "sync.removeExtensions": true,
+    "sync.syncExtensions": true,
+    // vscode配置上传到github gist 依赖gist and token
+}
