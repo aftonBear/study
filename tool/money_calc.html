@@ -66,8 +66,7 @@
     <input type="text" id="c4" v-model.number="March.c4">
     <label for="c5">借款</label>
     <input type="text" id="c5" v-model.number="March.c5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;小计：{{ total([March.c1,March.c2,March.c3,March.c4,March.c5]) }}元
-    <hr>
-    {{ total(Feb) + total(March) - 727 }}
+    <hr> {{ total(Feb) + total(March) - 727 }}
   </div>
 
   <script>
@@ -95,19 +94,19 @@
           c4: 948,
           c5: 10000
         },
-        totalArr:[]
+        totalArr: []
       },
       methods: {
-        total(arr = [1,2,3,4]){
+        total(arr = [1, 2, 3, 4]) {
           let sum = 0;
-          for(i in arr){
+          for (i in arr) {
             sum = sum + arr[i];
           }
           return sum;
         }
       },
       computed: {
-        total1(){
+        total1() {
           // this.Jan.reduce((prev,curr) => prev + curr)
         }
       }
