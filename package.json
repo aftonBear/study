@@ -1,0 +1,26 @@
+{
+  "name": "study",
+  "version": "1.0.0",
+  "description": "study for work and life",
+  "main": "index.js",
+  "dependencies": {
+    "standard": "^11.0.1"
+  },
+  "devDependencies": {
+    "snazzy": "^7.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard --verbose | snazzy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aftonBear/study.git"
+  },
+  "author": "Afton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aftonBear/study/issues"
+  },
+  "homepage": "https://github.com/aftonBear/study#readme"
+}
