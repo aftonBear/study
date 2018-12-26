@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let a = 2;
+    let b = 3;
+    const remote = {
+      a: 1,
+      b,
+      c() {
+        return a
+      }
+    }
+    // console.log(remote.c())
+    let ms = {
+      a: 1,
+      b: 2,
+      c: 3
+    };
+
+    function getItem(key) {
+      // debugger
+      return console.log(key in ms ? ms[key] : null);
+    }
+    getItem('a')
+
+    const obj = {
+      * m() {
+        yield 'hello world';
+      }
+    };
+    console.log(obj.m())
+
+    function aaa() {
+      setTimeout(() => {
+        console.log('delay1500')
+      }, 1500);
+    }
+
+    new Promise(aaa).then((res) => {
+      console.log(res + 'res')
+    })
+
+    function newPromise_resolve() {
+      return new Promise((resolve, reject) => {
+        resolve(); //这里调resolve方法，则then方法会被调用
+        console.log('resolve里面的log');
+      })
+      //先输出 resolve里面的log
+      //后输出 then方法
+      //这里很好地体现了 Promise实现了 node.js的异步机制
+    }
+
+    newPromise_resolve().then(() => {
+      console.log('then方法');
+    });
+
+    // newPromise_resolve();
+
+    let obj1 = {
+      a: 1
+    };
+    let a1 = Object.assign(obj1, undefined) // true
+    let a2 = Object.assign(obj1, null) // true
+    console.log(a1)
+
+    let demoObj = {
+      a: 1,
+      b: 2,
+      c: 3,
+      d: {
+        aaa: 1
+      }
+    }
+    for (let k in demoObj) {
+      console.log(k)
+      if (typeof demoObj[k] === 'object') {
+        console.log('obj')
+      }
+    }
+
+    let obj3 = {
+      a: {
+        b: 1
+      },
+      c: 1
+    };
+    let {
+      x,
+      ...w
+    } = obj3;
+    // console.log('解构' + x.a) // 2
+
+    let previousVersion = {
+      name: 'a',
+      age: 18
+    }
+    let newVersion = {
+      ...previousVersion,
+      name: 'New Name' // Override the name property
+    };
+    console.log(newVersion)
+
+    const calendarTypeOptions = [{
+        key: 'CN',
+        display_name: 'China'
+      },
+      {
+        key: 'US',
+        display_name: 'USA'
+      },
+      {
+        key: 'JP',
+        display_name: 'Japan'
+      },
+      {
+        key: 'EU',
+        display_name: 'Eurozone'
+      }
+    ]
+    // arr to obj ,such as { CN : "China", US : "USA" }
+    const calendarTypeKeyValue = calendarTypeOptions.reduce((acc, cur) => {
+      acc[cur.key] = cur.display_name
+      return acc
+    }, {})
+    console.log(calendarTypeKeyValue)
+
+    var a = "1561651?a=1&b=2&c=3"
+    var obj = {}
+    var res = a.split('?')[1].split('&').forEach(function (item) {
+      var arr = item.split('=')
+      arr.length === 2 & (obj[arr[0] = arr[1]])
+    })
+    console.log(res)
+    var demo = [2, 3, 10, 3, 2, , -1];
+    console.log([...Array.from(new Set(demo))].sort((a, b) => a - b))
+
+    let data = {
+      id: 1,
+      content1: 4,
+      content2: 3,
+      url: 4,
+      students: 5
+    }
+    let aaa = Object.assign({}, data)
+    if (data.content1 && data.content2) {
+      aaa = {
+        content: `${data.content1};${data.content2}`,
+        ...data
+      }
+      console.log(aaa)
+
+    } else {
+      aaa = {
+        content: `${data.content1}${data.content2}`,
+        ...data
+      }
+      console.log(aaa)
+    }
+  </script>
+</body>
+
+</html>
